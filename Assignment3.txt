@@ -1,0 +1,23 @@
+
+ 1)	What is NodeJs and what is usage?
+
+ NodeJs is server side  run time environment which is used to run server side scripting code. 
+ It is single threaded and highly scalable because of async processing
+ It uses event loop to handle the async non blocking I/O requests.
+ It is mainly used in real time web application, streaming applications, game servers.
+ It also has npm which provides the node modules required for the projects and also provides command line utility functions.
+ 
+ 2)	What is the use of NODE_ENV?
+ NODE_ENV provides the config data related to server environments, also we can set server details and db details in .env file. If we set NODE_ENV as production , nodejs based server will run 2 to 3 times faster.
+
+ 3)	What is Event loop in NodeJS and how does it works?
+  All the server requests are handled by event loop which is the main part of nodejs based server. 
+  When a client sends a request to the server, it will be placed in a queue called event queue. For every iteration event loop runs and check if there are any request needs to be processed in event queue. If no request it will simply wait for the request. If the request is present , it will check if the request does not require any I/O operation. If the request is based on I/O operation, it will attach the callback function to it and assign it to the threads present in the internal thread pool. These requests are handled by the thread which will be responsible for prcoessing of request and sends the response back to the event loop which in turn sends the response back to the client. If the request is simple then event loop handles the processing of request.
+
+ 4)	What is the difference between asynchronous and non-blocking?
+
+ asynchronous does not wait for the prcoessing of the request, it will simply return whatever data is available. If data is available it will send the response or else error will be sent.
+ NOn blocking is mainly related to I/O operation such as any db operation or file read write operation. It does not block the execution of any other code meanwhile it will also work on current code execution.
+5)	Differentiate between readFile vs createREadStream in nodejs?
+Readfile and createREadStream are associated with the file read operation. Readfile loads the data into the memory. It will provides whole data at a time where as createREadStream loads the file in terms of chunks of memory size. createREadStream is more efficient than the readfile as the response sent will be faster compared to readFile.
+
